@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/onBoardFragment">
+
+    <fragment
+        android:id="@+id/onBoardFragment"
+        android:name="com.example.android2.ui.fragments.onboard.OnBoardFragment"
+        android:label="fragment_on_board"
+        tools:layout="@layout/fragment_on_board" >
+        <action
+            android:id="@+id/action_onBoardFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.android2.ui.fragments.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_noteAppMainFragment"
+            app:destination="@id/noteAppMainFragment"
+            app:popUpToSaveState="true"
+            app:popUpTo="@id/detailFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/noteAppMainFragment"
+        android:name="com.example.android2.ui.fragments.NoteAppMainFragment"
+        android:label="fragment_note_app_main"
+        tools:layout="@layout/fragment_note_app_main" >
+        <action
+            android:id="@+id/action_noteAppMainFragment_to_detailFragment"
+            app:destination="@id/detailFragment"/>
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+</navigation>
